@@ -99,7 +99,8 @@ namespace WindowsFormsApp1
 
         private void button11_Click(object sender, EventArgs e)
         {
-
+            if (textBox2.Text.Contains(".") == false)
+                textBox2.Text += ".";
         }
 
         private void button12_Click(object sender, EventArgs e)
@@ -107,7 +108,7 @@ namespace WindowsFormsApp1
             switch (label3.Text)
             {
                 case "=":
-                    textBox1.Text = textBox2.Text;
+                    textBox1.Text = Convert.ToString(Convert.ToDouble(textBox2.Text));
                     break;
                 case "+":
                     textBox1.Text = Convert.ToString(Convert.ToDouble(textBox1.Text) + Convert.ToDouble(textBox2.Text));
@@ -122,6 +123,8 @@ namespace WindowsFormsApp1
                     textBox1.Text = Convert.ToString(Convert.ToDouble(textBox1.Text) / Convert.ToDouble(textBox2.Text));
                     break;
             }
+            label3.Text = "=";
+            textBox2.Text = "0";
         }
 
         private void button13_Click(object sender, EventArgs e)
@@ -144,12 +147,20 @@ namespace WindowsFormsApp1
             label3.Text = "/";
         }
 
-        private void button18_Click(object sender, EventArgs e)
+        private void button17_Click(object sender, EventArgs e)
         {
-            label3.Text--;
+            textBox2.Text = "0";
         }
 
-        private void button17_Click(object sender, EventArgs e)
+        private void button18_Click(object sender, EventArgs e)
+        {
+            if (textBox2.Text.Length > 1)
+                textBox2.Text = textBox2.Text.Substring(0, textBox2.Text.Length - 1);
+            else
+                textBox2.Text = "0";
+        }
+
+        private void button19_Click(object sender, EventArgs e)
         {
             textBox1.Text = "0";
             textBox2.Text = "0";
